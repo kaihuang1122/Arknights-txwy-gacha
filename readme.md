@@ -35,9 +35,9 @@
     * 假設每次抓取都有完整完成。
     * 假設任意十連尋訪的紀錄不會被有效數據的邊界分割。
 
-## Prerequisites / 前置需求：
-Ensure you have Google Chrome 133.0 or higher installed. / 請確保您的電腦已安裝 Google Chrome 133.0 或以上版本。
-Ensure you have Python 3.11 or higher installed. / 請確保您的電腦已安裝 Python 3.11 或以上版本。
+## Prerequisites / 前置需求
+* Ensure you have Google Chrome 133.0 or higher installed. / 請確保您的電腦已安裝 Google Chrome 133.0 或以上版本。
+* Ensure you have Python 3.11 or higher installed. / 請確保您的電腦已安裝 Python 3.11 或以上版本。
 
 ## Getting Started / 使用方法
 
