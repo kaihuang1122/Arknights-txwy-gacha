@@ -71,7 +71,7 @@ Ensure you have Python 3.11 or higher installed. / 請確保您的電腦已安�
     PAGE_CHANGE_TIME = 1
     # ===========================================================
     ```
-    If you keep the example email, the program will wait for `ACCOUNT_ENTERING_TIME` seconds for you to enter manually. / 若將EMAIL維持示例狀態，程式將等待`ACCOUNT_ENTERING_TIME`秒讓你手動輸入。
+    If you keep the example email, the program will wait for `ACCOUNT_ENTERING_TIME` seconds for you to sign in manually. / 若將EMAIL維持示例狀態，程式將等待`ACCOUNT_ENTERING_TIME`秒讓你手動登入。
     During scraping, the script waits PAGE_CHANGE_TIME seconds for each page to load. Adjust this value based on your network speed. / 抓取時，會在換頁後等待載入 `PAGE_CHANGE_TIME` 秒，你可以依照網路狀況進行調整。
 
 

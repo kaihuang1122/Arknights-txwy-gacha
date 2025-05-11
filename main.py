@@ -43,11 +43,12 @@ try:
     # initialize
     driver.get("https://ak.gryphline.com/user/visit")
     wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, EMAIL_INPUT)))
-    time.sleep(2*PAGE_CHANGE_TIME)
+    
     
     if EMAIL == "your_email@example.com":
         time.sleep(ACCOUNT_ENTERING_TIME)
     else:
+        time.sleep(2*PAGE_CHANGE_TIME)
         try:
             driver.find_element(By.CSS_SELECTOR, EMAIL_INPUT).send_keys(EMAIL)
             driver.find_element(By.CSS_SELECTOR, PASSWORD_INPUT).send_keys(PASSWORD)
@@ -55,12 +56,9 @@ try:
             print("login elements not found.")
             driver.quit()
             exit()
-
-    login_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, LOGIN_BUTTON)))
-    login_button.click()
-
-    wait.until(EC.url_contains("/user/visit"))
-    time.sleep(5*PAGE_CHANGE_TIME)
+        login_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, LOGIN_BUTTON)))
+        login_button.click()
+        time.sleep(5*PAGE_CHANGE_TIME)
 
     # page collection
     records = []
