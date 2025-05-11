@@ -54,7 +54,7 @@ Ensure you have Python 3.11 or higher installed. / 請確保您的電腦已安�
     ```bash
     python -m venv venv
     .\venv\Scripts\activate (windows)
-    source tutorial-env/bin/activate (Unix or MacOS)
+    source venv/bin/activate (Unix or MacOS)
     ```
 4. **Install Dependencies**: / **安裝套件**：  
     ```bash
@@ -67,7 +67,7 @@ Ensure you have Python 3.11 or higher installed. / 請確保您的電腦已安�
     # ========= Please enter the following configuration=========
     EMAIL = "your_email@example.com"
     PASSWORD = "your_password_here"
-    ACCOUNT_ENTERING_TIME = 10
+    ACCOUNT_ENTERING_TIME = 20
     PAGE_CHANGE_TIME = 1
     # ===========================================================
     ```

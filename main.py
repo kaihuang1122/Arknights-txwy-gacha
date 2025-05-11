@@ -11,7 +11,7 @@ from selenium.common.exceptions import NoSuchElementException, TimeoutException
 # ========= Please enter the following configuration=========
 EMAIL = "your_email@example.com"
 PASSWORD = "your_password_here"
-ACCOUNT_ENTERING_TIME = 10
+ACCOUNT_ENTERING_TIME = 20
 PAGE_CHANGE_TIME = 1
 # ===========================================================
 
