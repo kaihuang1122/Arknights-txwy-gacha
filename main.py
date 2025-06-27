@@ -12,7 +12,7 @@ from selenium.common.exceptions import NoSuchElementException, TimeoutException
 EMAIL = "your_email@example.com"
 PASSWORD = "your_password_here"
 ACCOUNT_ENTERING_TIME = 20
-PAGE_CHANGE_TIME = 1
+PAGE_CHANGE_TIME = 0.5
 # ===========================================================
 
 # CSS selectors
@@ -64,11 +64,14 @@ try:
     records = []
     last_page = []
     current_page = []
+    page_counter = 0
     while True:
+        page_counter += 1
         items = driver.find_elements(By.CSS_SELECTOR, ITEM_SELECTOR)
         if not items:
             print("no items found.")
             break
+        # print(f"Found {len(items)} items on the page {page_counter}.")
         
         for item in items:
             try:
@@ -102,8 +105,9 @@ try:
                     new = "True"
                 except NoSuchElementException:
                     new = "False"
-                records.append({"operator": name,"star": star,"pool": pool,"time": t,"new": new})
-                current_page.append(t)
+                # records.append({"operator": name,"star": star,"pool": pool,"time": t,"new": new})
+                # current_page.append(t)
+                current_page.append({"operator": name, "star": star, "pool": pool, "time": t, "new": new})
             except NoSuchElementException:
                 print("Operator name or time not found.")
                 continue
@@ -116,11 +120,14 @@ try:
             time.sleep(PAGE_CHANGE_TIME)
         except NoSuchElementException:
             break
+        
         if current_page == last_page:
             print("Scraping completed, no new items found.")
             break
-        last_page = current_page.copy()
-        current_page.clear()
+        else:
+            records += current_page
+            last_page = current_page.copy()
+            current_page.clear()
 
 finally:
     driver.quit()
@@ -158,6 +165,9 @@ if len(previous_records) > 0 and len(records) > 0:
         if len(cluster_now) == 0 or len(cluster_prev) == 0:
             break
         elif cluster_now[0]["time"] == cluster_prev[0]["time"]:
+            # Check if the number of records in the clusters is too large
+            if len(cluster_now) > 10 or len(cluster_prev) > 10:
+                print(f"Warning: too many records in the same time cluster, {len(cluster_now)} vs {len(cluster_prev)}, please check manually.")
             # If the time is the same, compare the records
             if len(cluster_now) == len(cluster_prev):
                 # keep the new records
